@@ -1,5 +1,5 @@
 <p align="center">  
-   <img title="Zainpay" height="100" src="https://raw.githubusercontent.com/itcglobal/zainpay/main/zainpay.png" width="50%"/>
+   <img title="Zainpay" height="100" src="https://github.com/shahidsani/zainpay-flutter-sdk/blob/main/zainpay.png" width="50%"/>
 </p>  
 
 # Zainpay Flutter Package
