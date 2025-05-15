@@ -6,7 +6,6 @@ import 'package:zainpay/view/inapp_browser.dart';
 import '../models/request/standard_request.dart';
 
 class NavigationController {
-
   final TransactionCallBack _callBack;
 
   NavigationController(this._callBack);
@@ -15,9 +14,9 @@ class NavigationController {
   startTransaction(final StandardRequest request) async {
     try {
       final InitPaymentResponse? initPaymentResponse =
-      await request.initializePayment(request.publicKey);
+          await request.initializePayment(request.publicKey);
       if (initPaymentResponse?.status == "200 OK") {
-      openBrowser(initPaymentResponse?.data ?? "", request.callBackUrl);
+        openBrowser(initPaymentResponse?.data ?? "", request.callBackUrl);
       }
     } catch (error) {
       rethrow;
@@ -25,23 +24,24 @@ class NavigationController {
   }
 
   /// Opens browser with URL returned from startTransaction()
-  openBrowser(final String url, final String redirectUrl, [final bool isTestMode = false]) async {
-    final ZainpayInAppBrowser browser = ZainpayInAppBrowser(callBack: _callBack);
+  openBrowser(final String url, final String redirectUrl,
+      [final bool isTestMode = false]) async {
+    final ZainpayInAppBrowser browser =
+        ZainpayInAppBrowser(callBack: _callBack);
 
-    var options = InAppBrowserClassOptions(
-      crossPlatform: InAppBrowserOptions(
-          hideUrlBar: true,
+    // Updated for flutter_inappwebview 6.0.0+
+    var settings = InAppBrowserClassSettings(
+      browserSettings: InAppBrowserSettings(
+        hideUrlBar: true,
         hideToolbarTop: true,
       ),
-      inAppWebViewGroupOptions: InAppWebViewGroupOptions(
-        crossPlatform: InAppWebViewOptions(
-            javaScriptEnabled: true,
-          clearCache: true
-        ),
+      webViewSettings: InAppWebViewSettings(
+        javaScriptEnabled: true,
+        clearCache: true,
       ),
     );
 
     await browser.openUrlRequest(
-        urlRequest: URLRequest(url: Uri.parse(url)), options: options);
+        urlRequest: URLRequest(url: WebUri(url)), settings: settings);
   }
 }
