@@ -3,20 +3,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 
-const blackColor = "#0C0C0C";
-const dividerGreyColor = "#E6E6E6";
-const pendingColor = "#F7CE4D";
-const pendingDeliveryColor = "#5B5B5B";
-const failedColor = "#EB8481";
-const greenColor = "#02B133";
-const redColor = "#FC5D53";
-const darkRed = "#FC5D53";
-const textGreyColor = "#807F86";
-const paymentIconBlueBackgroundColor = "#E0EDFF";
-const paymentBlueBackgroundColor = "#006AFB";
-const textEmailColor = "#808080";
-const paymentCancelButtonColor = "#EAEEF3";
-const paymentTextColor = "#55586F";
+// Colors
+const String blackColor = "#0C0C0C";
+const String dividerGreyColor = "#E6E6E6";
+const String pendingColor = "#F7CE4D";
+const String pendingDeliveryColor = "#5B5B5B";
+const String failedColor = "#EB8481";
+const String greenColor = "#02B133";
+const String redColor = "#FC5D53";
+const String darkRed = "#FC5D53";
+const String textGreyColor = "#807F86";
+const String paymentIconBlueBackgroundColor = "#E0EDFF";
+const String paymentBlueBackgroundColor = "#006AFB";
+const String textEmailColor = "#808080";
+const String paymentCancelButtonColor = "#EAEEF3";
+const String paymentTextColor = "#55586F";
 var formatter = NumberFormat('#,###,###');
 const paymentFontFamily = 'Airbnb Cereal App';
 
@@ -29,7 +30,7 @@ TextStyle blackTextStyle = TextStyle(
 
 Color hexToColor(String code) => Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
 
-void showNotification({required message, required error}) =>
+void showNotification({required String message, required bool error}) {
   showSimpleNotification(
     Container(
       height: 50,
@@ -63,8 +64,9 @@ void showNotification({required message, required error}) =>
     elevation: 0,
     duration: const Duration(seconds: 3),
   );
+}
 
-void showToast({required message}){
+void showToast({required String message}) {
   showSimpleNotification(
       Container(
         margin: const EdgeInsets.only(bottom: 40, left: 120, right: 120),
@@ -87,8 +89,8 @@ void showToast({required message}){
             ),),
         ),
       ),
-      background: Colors.white54.withOpacity(0.1),
+      background: Colors.white54.withAlpha(25),
       elevation: 0,
-      position:  NotificationPosition.bottom
+      position: NotificationPosition.bottom
   );
 }
