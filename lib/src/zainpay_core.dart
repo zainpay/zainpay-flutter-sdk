@@ -7,7 +7,6 @@ import 'package:zainpay/models/payment_response.dart';
 import 'package:zainpay/models/request/charge_tokenized_card_request.dart';
 import 'package:zainpay/models/request/remove_tokenized_card_request.dart';
 import 'package:zainpay/models/request/tokenize_card_request.dart';
-import 'package:zainpay/models/response/base_response.dart';
 import 'package:zainpay/models/response/tokenize_card_response.dart';
 import 'package:zainpay/theme/zainpay_theme.dart';
 import 'package:zainpay/utils/zainpay_utils.dart';

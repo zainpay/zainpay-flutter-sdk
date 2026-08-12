@@ -1,20 +1,13 @@
-## [0.1.7] - Release July, 2022
+## [0.2.1] - Release August, 2026
 
-- Initial release.
-
-## [0.1.8] - [0.1.10] - Release August, 2022
-
-- UI and font fixes.
-
-## [0.1.11] - Release August, 2022
-
-- Standard request parameter updated to include test and live urls.
-- UI and font fixes.
-
-## [0.1.12] - Release September, 2022
-
-- UI and font fixes.
-- response code fix.
+- Canonical API docs and examples now use `ZainpayCore` as the primary integration surface.
+- Legacy `Zainpay` instance API remains available as a compatibility wrapper and now delegates to `ZainpayCore.startPayment(...)`.
+- Removed deprecated legacy payment-flow implementation layer under `lib/view/` and old flow wiring in `lib/core/`.
+- Consolidated request/response modeling around canonical files in `lib/models/payment_request.dart` and `lib/models/payment_response.dart`.
+- Removed duplicate legacy model files under `lib/models/response/` (except `tokenize_card_response.dart`, still used by tokenization APIs).
+- Added/expanded automated tests for model serialization, transaction utilities, and payment screen behavior.
+- Added CI workflow at `.github/workflows/flutter_ci.yml` for root analyze/test and example analyze.
+- Analyzer and tests are clean in root and example at release time.
 
 ## [0.2.0] - Release May, 2024
 
@@ -47,3 +40,21 @@
 - Added transaction verification endpoint
 - Enhanced documentation with examples for all new features
 - Fixed various bugs and improved stability
+
+## [0.1.12] - Release September, 2022
+
+- UI and font fixes.
+- response code fix.
+
+## [0.1.11] - Release August, 2022
+
+- Standard request parameter updated to include test and live urls.
+- UI and font fixes.
+- 
+## [0.1.8] - [0.1.10] - Release August, 2022
+
+- UI and font fixes.
+
+## [0.1.7] - Release July, 2022
+
+- Initial release.
