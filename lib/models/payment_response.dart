@@ -43,16 +43,12 @@ class InitPaymentResponse extends BaseResponse {
 
   /// Creates a new payment initialization response
   InitPaymentResponse({
-    String? code,
-    String? description,
-    String? status,
+    super.code,
+    super.description,
+    super.status,
     this.sessionId,
     this.data,
-  }) : super(
-    code: code,
-    description: description,
-    status: status,
-  );
+  });
 
   /// Creates a payment initialization response from JSON
   factory InitPaymentResponse.fromJson(Map<String, dynamic> json) {
@@ -85,15 +81,11 @@ class PaymentResponse extends BaseResponse {
 
   /// Creates a new payment response
   PaymentResponse({
-    String? code,
-    String? description,
-    String? status,
+    super.code,
+    super.description,
+    super.status,
     this.data,
-  }) : super(
-    code: code,
-    description: description,
-    status: status,
-  );
+  });
 
   /// Creates a payment response from JSON
   factory PaymentResponse.fromJson(Map<String, dynamic> json) {
@@ -148,15 +140,11 @@ class VirtualAccountResponse extends BaseResponse {
 
   /// Creates a new virtual account response
   VirtualAccountResponse({
-    String? code,
-    String? description,
-    String? status,
+    super.code,
+    super.description,
+    super.status,
     this.data,
-  }) : super(
-    code: code,
-    description: description,
-    status: status,
-  );
+  });
 
   /// Creates a virtual account response from JSON
   factory VirtualAccountResponse.fromJson(Map<String, dynamic> json) {
@@ -223,15 +211,11 @@ class VirtualAccountBalanceResponse extends BaseResponse {
 
   /// Creates a new virtual account balance response
   VirtualAccountBalanceResponse({
-    String? code,
-    String? description,
-    String? status,
+    super.code,
+    super.description,
+    super.status,
     this.data,
-  }) : super(
-    code: code,
-    description: description,
-    status: status,
-  );
+  });
 
   /// Creates a virtual account balance response from JSON
   factory VirtualAccountBalanceResponse.fromJson(Map<String, dynamic> json) {

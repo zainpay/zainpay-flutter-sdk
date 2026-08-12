@@ -1,7 +1,7 @@
 name: zainpay
 description: A flutter package to implement zainpay on your flutter application.
 version: 0.2.1
-homepage: "https://github.com/itcglobal/zainpay"
+homepage: "https://github.com/zainpay/zainpay-flutter-sdk"
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

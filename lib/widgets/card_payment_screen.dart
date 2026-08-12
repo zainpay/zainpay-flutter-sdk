@@ -28,9 +28,6 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
   /// Whether the screen is loading
   bool _isLoading = true;
   
-  /// InAppWebView controller
-  late InAppWebViewController _webViewController;
-  
   /// Progress of the web view
   double _progress = 0;
   
@@ -92,9 +89,6 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
                       javaScriptEnabled: true,
                       clearCache: true,
                     ),
-                    onWebViewCreated: (controller) {
-                      _webViewController = controller;
-                    },
                     onLoadStart: (controller, url) {
                       _handleUrlChange(url);
                     },

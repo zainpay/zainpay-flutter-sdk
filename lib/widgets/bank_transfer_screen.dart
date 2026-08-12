@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:zainpay/models/payment_request.dart';
 import 'package:zainpay/models/payment_response.dart';
 import 'package:zainpay/theme/zainpay_theme.dart';
@@ -15,9 +14,9 @@ class BankTransferScreen extends StatefulWidget {
 
   /// Creates a new bank transfer screen
   const BankTransferScreen({
-    Key? key,
+    super.key,
     required this.request,
-  }) : super(key: key);
+  });
 
   @override
   State<BankTransferScreen> createState() => _BankTransferScreenState();
@@ -227,12 +226,12 @@ class _BankTransferScreenState extends State<BankTransferScreen> {
                   const SizedBox(height: 24),
                   
                   // Instructions
-                  Text(
+                  const Text(
                     'Transfer Instructions',
                     style: ZainpayTheme.titleLarge,
                   ),
                   const SizedBox(height: 8),
-                  Text(
+                  const Text(
                     'Please transfer the exact amount to the account details below. The payment will be automatically confirmed once received.',
                     style: ZainpayTheme.bodyMedium,
                   ),

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:zainpay/models/response/payment_response.dart';
+import 'package:zainpay/models/payment_response.dart';
 import 'package:zainpay/utils/zainpay_utils.dart';
 
 /// Request model for charging a tokenized card

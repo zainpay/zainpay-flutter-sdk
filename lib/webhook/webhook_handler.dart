@@ -1,7 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:zainpay/models/response/base_response.dart';
+import 'package:zainpay/models/payment_response.dart';
 import 'package:zainpay/utils/zainpay_utils.dart';
 
 /// WebhookHandler handles webhook events from Zainpay

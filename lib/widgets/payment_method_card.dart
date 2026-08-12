@@ -29,11 +29,11 @@ class PaymentMethodCard extends StatelessWidget {
 
   /// Creates a new payment method card
   const PaymentMethodCard({
-    Key? key,
+    super.key,
     required this.type,
     required this.onTap,
     this.isSelected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class PaymentMethodCard extends StatelessWidget {
               ),
             ),
             // Chevron icon
-            Icon(
+            const Icon(
               Icons.chevron_right,
               size: 20,
               color: ZainpayTheme.textLight,
@@ -107,25 +107,25 @@ class PaymentMethodCard extends StatelessWidget {
   PaymentMethodDetails _getPaymentMethodDetails(PaymentMethodType type) {
     switch (type) {
       case PaymentMethodType.card:
-        return PaymentMethodDetails(
+        return const PaymentMethodDetails(
           icon: Icons.credit_card,
           title: 'Pay with Card',
           subtitle: 'Visa, Mastercard, Verve',
         );
       case PaymentMethodType.bankTransfer:
-        return PaymentMethodDetails(
+        return const PaymentMethodDetails(
           icon: Icons.account_balance,
           title: 'Pay with Bank Transfer',
           subtitle: 'Make a transfer to a virtual account',
         );
       case PaymentMethodType.ussd:
-        return PaymentMethodDetails(
+        return const PaymentMethodDetails(
           icon: Icons.dialpad,
           title: 'Pay with USSD',
           subtitle: 'Dial a code to pay',
         );
       case PaymentMethodType.qrCode:
-        return PaymentMethodDetails(
+        return const PaymentMethodDetails(
           icon: Icons.qr_code,
           title: 'Pay with QR Code',
           subtitle: 'Scan a QR code to pay',

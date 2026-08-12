@@ -15,9 +15,9 @@ class PaymentScreen extends StatefulWidget {
 
   /// Creates a new payment screen
   const PaymentScreen({
-    Key? key,
+    super.key,
     required this.request,
-  }) : super(key: key);
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -187,7 +187,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   const SizedBox(height: 24),
                   
                   // Payment methods title
-                  Text(
+                  const Text(
                     'Select Payment Method',
                     style: ZainpayTheme.titleLarge,
                   ),

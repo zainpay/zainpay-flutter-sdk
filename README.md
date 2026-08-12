@@ -44,7 +44,7 @@ Add Zainpay to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  zainpay: ^0.2.0
+  zainpay: ^0.2.1
 ```
 
 Then run:
@@ -64,7 +64,7 @@ import 'package:flutter/material.dart';
 import 'package:zainpay/zainpay.dart';
 
 Future<void> makePayment() async {
-  final response = await Zainpay.startPayment(
+  final response = await ZainpayCore.startPayment(
     context: context,
     publicKey: 'YOUR_PUBLIC_KEY',
     fullName: 'John Doe',
@@ -93,7 +93,7 @@ For more control over the payment process, you can use the individual components
 #### Creating a Virtual Account for Bank Transfer
 
 ```dart
-final virtualAccountResponse = await Zainpay.createVirtualAccount(
+final virtualAccountResponse = await ZainpayCore.createVirtualAccount(
   publicKey: 'YOUR_PUBLIC_KEY',
   fullName: 'John Doe',
   email: 'john.doe@example.com',
@@ -115,7 +115,7 @@ if (virtualAccountResponse != null) {
 #### Checking Virtual Account Balance
 
 ```dart
-final balanceResponse = await Zainpay.checkVirtualAccountBalance(
+final balanceResponse = await ZainpayCore.checkVirtualAccountBalance(
   publicKey: 'YOUR_PUBLIC_KEY',
   accountNumber: 'ACCOUNT_NUMBER',
   fullName: 'John Doe',
@@ -137,7 +137,7 @@ if (balanceResponse != null) {
 You can customize the payment UI by providing a custom theme:
 
 ```dart
-final response = await Zainpay.startPayment(
+final response = await ZainpayCore.startPayment(
   context: context,
   publicKey: 'YOUR_PUBLIC_KEY',
   // ... other parameters
@@ -154,36 +154,14 @@ final response = await Zainpay.startPayment(
 
 ### Legacy Usage
 
-For backward compatibility, you can still use the original approach:
-
-```dart
-final Zainpay zainpay = Zainpay(
-    context: context,
-    fullName: 'John Doe',
-    email: 'john.doe@example.com',
-    publicKey: 'YOUR_PUBLIC_KEY',
-    callBackUrl: 'https://your-website.com/callback',
-    mobileNumber: '08012345678',
-    zainboxCode: 'YOUR_ZAINBOX_CODE',
-    transactionRef: 'YOUR_TRANSACTION_REF',
-    amount: '5000',
-    isTest: true
-);
-
-final PaymentResponse? response = await zainpay.charge();
-
-if (response != null) {
-    print('Payment successful: ${response.toJson()}');
-} else {
-    print('Payment failed or cancelled');
-}
-```
+The instance-style `Zainpay(...).charge()` API remains available as a compatibility wrapper,
+but new integrations should use `ZainpayCore.startPayment(...)` directly.
 
 ## API Reference
 
-### Zainpay
+### ZainpayCore
 
-The main class for interacting with the Zainpay payment gateway.
+The canonical class for interacting with the Zainpay payment gateway.
 
 #### Methods
 

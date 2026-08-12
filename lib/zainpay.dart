@@ -8,7 +8,6 @@ export 'models/payment_response.dart';
 export 'models/request/charge_tokenized_card_request.dart';
 export 'models/request/remove_tokenized_card_request.dart';
 export 'models/request/tokenize_card_request.dart';
-export 'models/response/base_response.dart';
 export 'models/response/tokenize_card_response.dart';
 export 'src/zainpay_core.dart';
 // Theme

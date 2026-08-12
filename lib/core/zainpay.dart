@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zainpay/view/PaymentIntro.dart';
+import '../src/zainpay_core.dart';
+import '../models/payment_response.dart';
 
-import '../models/request/standard_request.dart';
-import '../models/response/payment_response.dart';
-
+@Deprecated('Use ZainpayCore.startPayment(...) from package:zainpay/zainpay.dart')
 class Zainpay {
 
   final BuildContext context;
@@ -30,27 +29,19 @@ class Zainpay {
     required this.isTest,
   });
 
-  /// Starts Standard Transaction
+  /// Starts a transaction using the canonical ZainpayCore facade.
   Future<PaymentResponse?> charge() async {
-
-    final StandardRequest request = StandardRequest(
-      amount: amount,
+    return ZainpayCore.startPayment(
+      context: context,
+      publicKey: publicKey,
       transactionRef: transactionRef,
+      email: email,
+      fullName: fullName,
       mobileNumber: mobileNumber,
       zainboxCode: zainboxCode,
-      email: email,
-      publicKey: publicKey,
       callBackUrl: callBackUrl,
-      fullName: fullName,
-      isTest: isTest
+      amount: amount,
+      isTest: isTest,
     );
-
-    return await Navigator.push(context,
-        MaterialPageRoute(
-          builder: (context) => PaymentIntro(
-            context: context,
-            standardRequest: request,
-          ),
-        ));
   }
 }
